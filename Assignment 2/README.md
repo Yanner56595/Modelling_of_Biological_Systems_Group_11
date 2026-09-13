@@ -7,11 +7,14 @@
 
 ## 1. Repository overview
 
-- `analysis_week2.ipynb` — main analysis notebook
+- `analysis_week2.ipynb` — main analysis notebook containing all required sections
 - `KEN3170_Assignment_2026_e_coli_core_expression.csv` — maximal reaction activity data
 - `README.md` — this file
+- `requirements.txt` — Python dependencies (numpy, matplotlib, pandas, cobra, escher)
 
-**How to run**: [Add setup and execution instructions]
+**How to run**:
+1. Install dependencies: `pip install -r requirements.txt`
+2. Open `analysis_week2.ipynb` and run all cells from top to bottom.
 
 ---
 
@@ -36,17 +39,17 @@ Resulting lower and upper bounds for every reaction were printed as a table
 
 ## 4. Part 3 — Biomass production optimization
 
-<!-- - 3a. Maximal biomass production under enzyme activity constraints
+- 3a. Maximal biomass production under expression-based constraints
 - 3b. Glucose uptake bound of 5 mmol/gDW/h and its interpretation
-- 3c. Biomass production with the additional glucose uptake constraint -->
+- 3c. Biomass production rate with the additional glucose uptake constraints, comparison of rates and explanation
 
 ---
 
 ## 5. Part 4 — Glucose uptake and growth rate analysis
 
-<!-- - 4a. Maximal biomass production versus glucose uptake bound (1–15 mmol/gDW/h, increments of 0.1)
-- 4b. Growth rate limitations with increasing glucose uptake bounds
-- 4c. Exchange reaction activated in the second curve segment -->
+- 4a. Plot of maximal biomass production vs. glucose uptake bound (1–15 mmol/gDW/h, increments of 0.1)
+- 4b. Explanation of growth rate limitations with increasing glucose uptake bounds
+- 4c. Search for exchange reaction activated in the second curve segment by comparing activated reactions in segment 1 and 2
 
 ---
 
