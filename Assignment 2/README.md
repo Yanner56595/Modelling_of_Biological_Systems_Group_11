@@ -24,8 +24,13 @@
 
 ## 3. Part 2 — Enzyme activity-constrained metabolic model
 
-<!-- - Implementation of reaction activity constraints in COBRApy
-- Lower and upper reaction flux bounds table -->
+Used maximal reaction activity values from e_coli_core_expression.csv in order to contrain the flux bounds of every reaction in the E.coli model. Witht he following rules:
+    -Reactions with expression data: If reversible, constrained to -1000 and 1000; If irreversible, contrained to 0 and 1000
+    -Reaction with no expression data: Left untouched
+    -EX_glc__D_e (glucose exchange): Constrained to -1000 and 1000
+    -ATPM: left untouched
+
+Resulting lower and upper bounds for every reaction were printed as a table
 
 ---
 
