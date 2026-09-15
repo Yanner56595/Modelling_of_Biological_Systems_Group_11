@@ -25,3 +25,10 @@ This repository contains the one assignment submitted for KEN3170. Each assignme
 │   ├── analysis.ipynb
 │   ├── requirements.txt
 │   └── README.md
+├── Assignment_2/
+│   ├── analysis_week2.ipynb
+│   ├── e_coli_core.json
+│   ├── image.png
+│   ├── KEN3170_Assignment_2026_e_coli_core_expression.csv
+│   ├── requirements.txt
+│   └── README.md
