@@ -167,5 +167,3 @@ Resulting lower and upper bounds for every reaction were printed as a table
 - 4c.
     -By comparing the activated processes in the model for segment 1 where the graph is increasing and segment 2 where the graph stops increasing with increased glucose, we found that the process  with ID "Ex_ac_e" gets activated. 
 ---
-
-## 6. Conclusions
