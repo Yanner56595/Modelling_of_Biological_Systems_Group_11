@@ -36,3 +36,13 @@ This repository contains the one assignment submitted for KEN3170. Each assignme
 │   ├── analysis3.ipynb
 │   ├── requirements.txt
 │   └── README.md
+├── Assignment_4/
+│   ├── analysis4.ipynb
+│   ├── requirements.txt
+│   ├── config.py
+│   ├── core.py
+│   ├── models.py
+│   ├── train.py
+│   ├── util.py
+│   ├── report4.pdf
+│   └── README.md
