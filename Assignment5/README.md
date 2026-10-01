@@ -45,7 +45,7 @@ pathogen production of this chemical
 - continued pathogen growth and eventual division
 
 
-# Task Two - The CellHouseKeeping method
+# Task 2 - The CellHouseKeeping method
 
 ## Question
 
