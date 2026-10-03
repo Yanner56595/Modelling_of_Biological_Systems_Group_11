@@ -71,5 +71,41 @@ The resulting stiffness value is then applied to all wall elements of the cell. 
 
 If these conditions are not satisfied, the wall stiffness remains at its default value of `3`, and `SetCellVeto(true)` is applied.
 
+# Task 3 - The CelltoCellTransport method
+
+## Question
+In the model files (`GitHub repo - Models - Infection - Infection.cpp`), read the `CelltoCellTransport` function. How is the diffusion coefficient defined? Explain the feedback loop this creates and sketch it: chemical lowers stiffness, lower stiffness raises diffusion, faster diffusion spreads the chemical. Is this positive or negative feedback.
+
+## Interpretation
+The function initially determines the relative proportions of sizes of the cells between which diffusion will happen. Since the wall consists of wall elements, the method uses `getLengthAndStiffness` function which goes through all small elements to get final length and stiffness of whole wall between 2 cells.
+
+The diffusion is defined as `diffusionCoef = 0.00001/stiffness`. The weaker the wall is, the easier it is for chemicals to move between these 2 cells, leading to higher diffusion coefficient. We also have a guard of `else{diffusionCoef=0.00001;}` for cases when stiffness is too low to prevent exploding of the metric or division by 0. 
+
+Finally, we calculate phi based on current `Chemical(0)` levels, length of the wall, and diffusion coefficient to understand how much chemical can move through. Based on the proportions of cells we calculated before, we calculate how much chemical moves to cell 1 and away from cell 2.
+
+As a result we can create such a loop:
+1. Pathogen produces `Chemical(0)` which then diffuses in other cells
+2. As we learned from tasks 1 and 2, the accumulation of this chemical reduces the wall stiffness.
+3. As we learned now, because of weaker walls, the diffusion becomes even faster (higher `diffusionCoef`).
+4. Higher diffusion means the chemical spreads even faster, making walls even weaker.
+
+![The Loop image](images/Loop.png)
+
+The process gets more and more amplified. Therefore, we call it **positive feedback** (self-amplifying).Negative feedback is the loop that self-corrects and calms down, which is not the case here.
 
 
+# Task 4 - rel_cell_div_threshold analysis
+
+## Question
+Raise and lower `rel_cell_div_threshold`. How does it change how fast the pathogen population expands? Document two runs.
+
+## Interpretation
+![Comparison of simulations](images/Task4_simulation_comparisons.png)
+
+The `rel_cell_div_threshold` parameter influences the required size of the pathogen cell to divide. To check this, we ran the simulation with different values of the parameter for 4 hours:
+- By lowering the parameter the pathogen cells expand rapidly, resulting in a cluster of small cells.
+- By raising the threshold, the cell keeps growing without splitting, resulting in an enlarged cell.
+
+However, in all cases we didn't find much influence on the chemical spread. In all simulations the amount and severity of infected cells remain similar with small changes due to randomness between simulations.
+
+In conclusion, by lowering the `rel_cell_div_threshold` parameter, the speed of pathogen population expansion increases while the spread level remains constant.
